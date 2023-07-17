@@ -273,13 +273,13 @@ http://IP:7000/find-latest/agri_news/5
 **1. To make connection and fetch all chats**
 
  ```
- http://IP:7000/chat-updates/chats
+ http://IP:8000/chat-updates/chats
  ```
  
  **2. To close connection**
  
  ```
- http://IP:7000/close-connections
+ http://IP:8000/close-connections
  ```
  
 ## POST Requests
@@ -287,7 +287,7 @@ http://IP:7000/find-latest/agri_news/5
 **1. To send msg and store it in mongodb**
 
 ```
-http://IP:7000/send-message/chats
+http://IP:8000/send-message/chats
 ```
 
 
@@ -300,4 +300,57 @@ http://IP:7000/send-message/chats
 }
 ```
 
+# Notification API
 
+## POST Requests
+
+```
+http://IP:8000/store-message/USER_ID
+```
+
+## GET Requests
+
+```
+http://IP:8000/get-notification/USERID/FEILD_NAME
+```
+
+**Data Format**
+
+```
+
+{
+    "userId" : "user1",
+    "msg" : {
+        "message_from" :{
+            "name" : "Sonu",
+            "contact" : "707007"
+        },
+        "service_type" : "",
+        "message" : "",
+        "read_status":""
+    }
+}
+```
+
+**Response Example**
+
+```
+{
+    "data": [
+        {
+            "userId": "user1",
+            "msg": {
+                "message_from": {
+                    "name": "Sonu",
+                    "contact": "707007"
+                },
+                "service_type": "",
+                "message": "",
+                "read_status": ""
+            }
+        }
+    ]
+}
+```
+
+**Data contains your requested feild**
